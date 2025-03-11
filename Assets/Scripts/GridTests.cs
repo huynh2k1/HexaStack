@@ -16,5 +16,6 @@ public class GridTests : MonoBehaviour
     private void UpdatePostion()
     {
         transform.position = grid.CellToWorld(gridPos);
+        //gridPos = grid.WorldToCell(transform.position);
     }
 }
