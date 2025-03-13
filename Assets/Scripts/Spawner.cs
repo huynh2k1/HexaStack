@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -8,7 +9,7 @@ public class Spawner : MonoBehaviour
     [Header("ELEMENTS")]
     public Transform stackPositionsParent;
     public Hexagon hexaPrefab;
-    public GameObject hexaStackPrefab;
+    public HexaStack hexaStackPrefab;
 
     [Header("SETTINGS")]
     [SerializeField] private Color[] colors;
@@ -28,7 +29,7 @@ public class Spawner : MonoBehaviour
 
     void GenerateStack(Transform parent)
     {
-        GameObject hexaStack = Instantiate(hexaStackPrefab, parent.position, Quaternion.identity, parent);
+        HexaStack hexaStack = Instantiate(hexaStackPrefab, parent.position, Quaternion.identity, parent);
         hexaStack.name = $"Stack {parent.GetSiblingIndex() }";
 
 
@@ -41,6 +42,8 @@ public class Spawner : MonoBehaviour
             Vector3 spawnPos = hexaStack.transform.TransformPoint(hexaLocalPos);
             Hexagon hexa = Instantiate(hexaPrefab, spawnPos, Quaternion.identity, hexaStack.transform);
             hexa.Color = (i < firstColorHexagonCount) ? colorArray[0] : colorArray[1];
+            hexaStack.Add(hexa);
+            hexa.Configure(hexaStack);
         }
     }
 
