@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9136377199737252483}
   - component: {fileID: 7728463559532007605}
   m_Layer: 7
-  m_Name: Hexa
+  m_Name: Hexagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 3510040829790320648}
+  collider: {fileID: 7728463559532007605}
 --- !u!23 &3510040829790320648
 MeshRenderer:
   m_ObjectHideFlags: 0

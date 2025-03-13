@@ -13,6 +13,28 @@ public class Spawner : MonoBehaviour
 
     [Header("SETTINGS")]
     [SerializeField] private Color[] colors;
+    [SerializeField] private int stackCounter;
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+        InputController.OnStackPlace += StackPlaceCallback;
+    }
+
+    private void OnDestroy()
+    {
+        InputController.OnStackPlace -= StackPlaceCallback;
+    }
+
+    private void StackPlaceCallback(HexaGrid gridCell)
+    {
+        stackCounter++;
+        if(stackCounter >= 3)
+        {
+            stackCounter = 0;
+            GenerateStacks();
+        }
+    }
 
     private void Start()
     {

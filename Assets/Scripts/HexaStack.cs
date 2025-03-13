@@ -12,4 +12,10 @@ public class HexaStack : MonoBehaviour
             Hexagons = new List<Hexagon>();
         Hexagons.Add(hexa);
     }
+
+    public void Place()
+    {
+        foreach (Hexagon hexagon in Hexagons)
+            hexagon.DisableCollider();
+    }
 }
