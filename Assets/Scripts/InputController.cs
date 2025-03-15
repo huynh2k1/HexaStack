@@ -48,7 +48,6 @@ public class InputController : MonoBehaviour
 
         if(hit.collider == null)
         {
-            Debug.Log("We have not detected any hexagon");
             return;
         }
 
@@ -127,7 +126,7 @@ public class InputController : MonoBehaviour
         }
 
         //ngược lại thì đặt stack lên grid
-        currentStack.transform.position = targetGridCell.GetPos.With(y : 0.2f);
+        currentStack.transform.position = targetGridCell.GetPos.With(y : 0.1f);
         currentStack.transform.SetParent(targetGridCell.transform);
         currentStack.Place();
 

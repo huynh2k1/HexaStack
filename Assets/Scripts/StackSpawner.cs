@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class StackSpawner : MonoBehaviour
 {
     [Header("ELEMENTS")]
     public Transform stackPositionsParent;
@@ -60,7 +60,7 @@ public class Spawner : MonoBehaviour
         Color[] colorArray = GetRandomColors();
         for(int i = 0; i < amount; i++)
         {
-            Vector3 hexaLocalPos = Vector3.up * i * 0.15f;
+            Vector3 hexaLocalPos = Vector3.up * i * 0.1f;
             Vector3 spawnPos = hexaStack.transform.TransformPoint(hexaLocalPos);
             Hexagon hexa = Instantiate(hexaPrefab, spawnPos, Quaternion.identity, hexaStack.transform);
             hexa.Color = (i < firstColorHexagonCount) ? colorArray[0] : colorArray[1];
